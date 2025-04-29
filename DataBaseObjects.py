@@ -5,50 +5,50 @@ April 26 2025
 This file contains the Classes for objects that are in my ERD/ database
 '''
 class Document:
-    def __init__(self, documentID, accountNumber, docName, docType, docCreationDate):
+    def __init__(self, documentID, accountNumber, documentType, docName, docCreationDate, creationDate):
         self.documentID = documentID
         self.accountNumber = accountNumber
+        self.documentType = documentType
         self.docName = docName
-        self.docType = docType
         self.docCreationDate = docCreationDate
+        self.creationDate = creationDate
 
 class Account:
-    def __init__(self, acountNumber, userID, acountType, balance, deliveryFrequency, deliveryPreference, customerName):
-        self.acountNumber = acountNumber
+    def __init__(self, accountNumber, userID, accountType, balance, deliveryFrequency, deliveryPreference, customerName, creationDate):
+        self.accountNumber = accountNumber
         self.userID = userID
-        self.acountType = acountType
+        self.accountType = accountType
         self.balance = balance
         self.deliveryFrequency = deliveryFrequency
         self.deliveryPreference = deliveryPreference
         self.customerName = customerName
+        self.creationDate = creationDate
 
 class User:
-    def __init__(self, userID, userName, password, last4SSN, customerName):
+    def __init__(self, userID, userName, password, last4SSN, cusomerName, role, optedIntoPaperless, birthdate):
         self.userID = userID
         self.userName = userName
         self.password = password
         self.last4SSN = last4SSN
-        self.customerName = customerName
-
-class UserEngagement:
-    def __init__(self, userID, adminID, loginFrequency, favoriteDocumentType, optedIntoPaperless):
-        self.userID = userID
-        self.adminID = adminID
-        self.loginFrequency = loginFrequency
-        self.favoriteDocumentType = favoriteDocumentType
-        self.optedIntoPaperless = optedIntoPaperless
-
-class Admin:
-    def __init__(self, adminID, userName, password, role):
-        self.adminID = adminID
-        self.userName = userName
-        self.password = password
+        self.cusomerName = cusomerName
         self.role = role
+        self.optedIntoPaperless = optedIntoPaperless
+        self.birthdate = birthdate
 
 class Log:
-    def __init__(self, logID, userEngagementID, createdAt, actionType, description):
+    def __init__(self, logID, accountNumber, documentID, createdAt, actionType, description, creationDate):
         self.logID = logID
-        self.userEngagementID = userEngagementID
+        self.accountNumber = accountNumber
+        self.documentID = documentID
         self.createdAt = createdAt
         self.actionType = actionType
         self.description = description
+        self.creationDate = creationDate
+
+        
+class ProfileDetails:
+    def __init__(self, profileDetailsID, userID, favoriteDocumentType, loginFrequency):
+        self.profileDetailsID = profileDetailsID
+        self.userID = userID
+        self.favoriteDocumentType = favoriteDocumentType
+        self.loginFrequency = loginFrequency

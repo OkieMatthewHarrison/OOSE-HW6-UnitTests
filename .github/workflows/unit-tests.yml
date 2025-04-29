@@ -2,7 +2,7 @@ name: Run Python Tests
 
 on:
   push:
-    branches: [main] # or whatever your branch is called
+    branches: [main]
   pull_request:
     branches: [main]
 
@@ -17,7 +17,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.x" # You can set it to a specific version like '3.10' if needed
+          python-version: "3.x"
 
       - name: Install dependencies
         run: |
